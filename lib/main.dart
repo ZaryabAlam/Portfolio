@@ -38,23 +38,23 @@ class _PortState extends State<Port> {
     return Scaffold(
         body: ListView(
       padding: EdgeInsets.zero,
-      children: [
-        buildTop(),
-        buildContent(),
-      ],
+      children: [buildTop(), buildContent(), buildBottomImage()],
     ));
   }
 
+/////////////////////////////////////////////////////////////////////////
 ////////////////////////////// Cover ////////////////////////////////////////
   ///
   Widget buildCoverImage() => Container(
-        color: Colors.grey,
-        child: Image.asset(
-          "cover.jpg",
-          width: double.infinity,
-          height: coverHeight,
-          fit: BoxFit.fill,
-        ),
+        width: double.infinity,
+        height: coverHeight,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(40.0),
+              bottomLeft: Radius.circular(40.0),
+            ),
+            image: DecorationImage(
+                image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
       );
 
 ////////////////////////////// Profile //////////////////////////////////////
@@ -91,7 +91,7 @@ class _PortState extends State<Port> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(250),
                 child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                  filter: ImageFilter.blur(sigmaX: 6, sigmaY: 0.5),
                   child: AnimatedContainer(
                     duration: const Duration(microseconds: 200),
                     child: Container(
@@ -103,7 +103,7 @@ class _PortState extends State<Port> {
                             end: Alignment.bottomCenter,
                             colors: [Colors.white60, Colors.white10]),
                         borderRadius: BorderRadius.circular(250),
-                        border: Border.all(width: 2, color: Colors.white30),
+                        border: Border.all(width: 2, color: Colors.white12),
                         color: Colors.white.withOpacity(isPressed ? 0.4 : 0.3),
                       ),
                     ),
@@ -194,12 +194,17 @@ class _PortState extends State<Port> {
               ],
             ),
           ),
+          SizedBox(
+            height: 100,
+          )
         ],
       ),
     );
   }
 
+/////////////////////////////////////////////////////////////////////////
 ////////////////////////////// Content //////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
   ///
   Widget buildSocialIcon(IconData icon) => CircleAvatar(
         radius: 25,
@@ -218,5 +223,17 @@ class _PortState extends State<Port> {
             ),
           ),
         ),
+      );
+
+  Widget buildBottomImage() => Container(
+        width: double.infinity,
+        height: coverHeight,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40.0),
+              topRight: Radius.circular(40.0),
+            ),
+            image: DecorationImage(
+                image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
       );
 }
