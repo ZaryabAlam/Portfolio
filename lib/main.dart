@@ -101,7 +101,7 @@ class _PortState extends State<Port> {
                         gradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomCenter,
-                            colors: [Colors.white60, Colors.white10]),
+                            colors: [Colors.white60, Colors.white30]),
                         borderRadius: BorderRadius.circular(250),
                         border: Border.all(width: 2, color: Colors.white12),
                         color: Colors.white.withOpacity(isPressed ? 0.4 : 0.3),
@@ -119,6 +119,18 @@ class _PortState extends State<Port> {
 ////////////////////////////// Content //////////////////////////////////////
   ///
   Widget buildContent() {
+    List colors = [
+      Colors.lightBlue[400],
+      Colors.orange[500],
+      Colors.green[300],
+      Color(0xFF02c0f5),
+    ];
+    List<IconData> icons = [
+      (FontAwesomeIcons.facebook),
+      FontAwesomeIcons.github,
+      FontAwesomeIcons.shieldCat,
+      FontAwesomeIcons.linkedin,
+    ];
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 48),
       child: Column(
@@ -140,18 +152,40 @@ class _PortState extends State<Port> {
           const SizedBox(
             height: 16,
           ),
+////////////////////////////////////////////////////icons/////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              buildSocialIcon(FontAwesomeIcons.github),
-              const SizedBox(width: 12),
-              buildSocialIcon(FontAwesomeIcons.facebook),
-              const SizedBox(width: 12),
-              buildSocialIcon(FontAwesomeIcons.twitter),
-              const SizedBox(width: 12),
-              buildSocialIcon(FontAwesomeIcons.linkedin),
-              const SizedBox(width: 12)
-            ],
+            children: List.generate(
+              4,
+              (index) {
+                return Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 25,
+                      child: Material(
+                        shape: CircleBorder(),
+                        clipBehavior: Clip.hardEdge,
+                        color: Colors.black,
+                        child: InkWell(
+                          onTap: () {},
+                          child: Center(
+                            child: Icon(
+                              icons[index],
+                              size: 32,
+                              color: colors[index],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    )
+                  ],
+                );
+              },
+            ),
           ),
           Divider(),
           Container(
@@ -195,7 +229,7 @@ class _PortState extends State<Port> {
             ),
           ),
           SizedBox(
-            height: 100,
+            height: 20,
           )
         ],
       ),
@@ -206,34 +240,53 @@ class _PortState extends State<Port> {
 ////////////////////////////// Content //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
   ///
-  Widget buildSocialIcon(IconData icon) => CircleAvatar(
-        radius: 25,
-        child: Material(
-          shape: CircleBorder(),
-          clipBehavior: Clip.hardEdge,
-          color: Colors.black,
-          child: InkWell(
-            onTap: () {},
-            child: Center(
-              child: Icon(
-                icon,
-                size: 32,
-                color: Colors.orange[500],
-              ),
-            ),
-          ),
-        ),
-      );
 
-  Widget buildBottomImage() => Container(
-        width: double.infinity,
-        height: coverHeight,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40.0),
-              topRight: Radius.circular(40.0),
-            ),
-            image: DecorationImage(
-                image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
-      );
+  Widget buildBottomImage() {
+    return Stack(
+      clipBehavior: Clip.none,
+      alignment: Alignment.center,
+      children: [
+        Container(
+          width: double.infinity,
+          height: 250,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40.0),
+                topRight: Radius.circular(40.0),
+              ),
+              image: DecorationImage(
+                  image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
+        ),
+        GestureDetector(
+            onTapDown: (_) {
+              setState(() => isPressed = true);
+            },
+            onTapUp: (_) {
+              setState(() => isPressed = false);
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(25),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                child: AnimatedContainer(
+                  duration: const Duration(microseconds: 200),
+                  child: Container(
+                    height: 150,
+                    width: 150,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomCenter,
+                          colors: [Colors.white60, Colors.white30]),
+                      borderRadius: BorderRadius.circular(25),
+                      border: Border.all(width: 2, color: Colors.white12),
+                      color: Colors.white.withOpacity(isPressed ? 0.4 : 0.3),
+                    ),
+                  ),
+                ),
+              ),
+            )),
+      ],
+    );
+  }
 }
