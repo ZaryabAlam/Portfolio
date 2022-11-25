@@ -1,8 +1,9 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:port/glass.dart';
 import 'package:port/glass2.dart';
-import 'dart:ui';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -131,6 +132,14 @@ class _PortState extends State<Port> {
       FontAwesomeIcons.shieldCat,
       FontAwesomeIcons.linkedin,
     ];
+
+    List links1 = [
+      "https://www.facebook.com/",
+      "https://github.com/",
+      "https://github.com/",
+      "https://www.linkedin.com/login",
+    ];
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 48),
       child: Column(
@@ -168,7 +177,14 @@ class _PortState extends State<Port> {
                         clipBehavior: Clip.hardEdge,
                         color: Colors.black,
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            dynamic url = links1[index];
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          },
                           child: Center(
                             child: Icon(
                               icons[index],
