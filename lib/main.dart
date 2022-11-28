@@ -136,8 +136,20 @@ class _PortState extends State<Port> {
     List links1 = [
       "https://www.facebook.com/",
       "https://github.com/",
-      "https://github.com/",
+      "https://github.com/ZaryabAlam",
       "https://www.linkedin.com/login",
+    ];
+
+    List hpics = [
+      "https://i.ibb.co/fYK8jpR/h1.png",
+      "https://i.ibb.co/zbhvdCg/h3.png",
+      "https://i.ibb.co/jfWjKJr/h2.png",
+    ];
+
+    List<String> hobby = [
+      "Sketching",
+      "Target Practise",
+      "Pet My Cat",
     ];
 
     return Container(
@@ -230,9 +242,37 @@ class _PortState extends State<Port> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "My hobbies happen to be portrait scretching, target practising and petting my cats. ",
-                  style: TextStyle(fontSize: 18, height: 1.8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    3,
+                    (index) {
+                      return Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 85,
+                                width: 85,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: NetworkImage(hpics[index]))),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 120,
+                            height: 10,
+                          ),
+                          Text(
+                            hobby[index],
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w100),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -287,8 +327,8 @@ class _PortState extends State<Port> {
                 child: AnimatedContainer(
                   duration: const Duration(microseconds: 200),
                   child: Container(
-                    height: 150,
-                    width: 150,
+                    height: 130,
+                    width: 130,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                           begin: Alignment.topLeft,
@@ -302,6 +342,13 @@ class _PortState extends State<Port> {
                 ),
               ),
             )),
+        Container(
+          height: 100,
+          width: 100,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage("https://i.ibb.co/LYSsfBq/qrcode.png"))),
+        )
       ],
     );
   }
