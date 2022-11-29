@@ -1,9 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:port/glass.dart';
-import 'package:port/glass2.dart';
+import 'package:port/skills.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,7 +39,13 @@ class _PortState extends State<Port> {
     return Scaffold(
         body: ListView(
       padding: EdgeInsets.zero,
-      children: [buildTop(), buildContent(), buildBottomImage()],
+      children: [
+        buildTop(),
+        buildContent(),
+        Skills(),
+        SizedBox(height: 40),
+        buildBottomImage()
+      ],
     ));
   }
 
@@ -141,15 +147,15 @@ class _PortState extends State<Port> {
     ];
 
     List hpics = [
-      "https://i.ibb.co/fYK8jpR/h1.png",
-      "https://i.ibb.co/zbhvdCg/h3.png",
-      "https://i.ibb.co/jfWjKJr/h2.png",
+      "https://i.ibb.co/8zcxTfj/tools.png",
+      "https://i.ibb.co/C6JQz3f/archery.png",
+      "https://i.ibb.co/9gk1Rzm/love.png",
     ];
 
     List<String> hobby = [
       "Sketching",
       "Target Practise",
-      "Pet My Cat",
+      "Petting My Cat",
     ];
 
     return Container(
@@ -233,14 +239,14 @@ class _PortState extends State<Port> {
                   style: TextStyle(fontSize: 18, height: 1.8),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 Text(
                   "Hobbies",
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -252,8 +258,8 @@ class _PortState extends State<Port> {
                           Row(
                             children: [
                               Container(
-                                height: 85,
-                                width: 85,
+                                height: 80,
+                                width: 80,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: NetworkImage(hpics[index]))),
@@ -266,8 +272,10 @@ class _PortState extends State<Port> {
                           ),
                           Text(
                             hobby[index],
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w100),
+                            style: new TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17.0,
+                                height: 1.2),
                           ),
                         ],
                       );
@@ -275,7 +283,7 @@ class _PortState extends State<Port> {
                   ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 Text(
                   "Skills",
@@ -285,18 +293,15 @@ class _PortState extends State<Port> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           )
         ],
       ),
     );
   }
 
-/////////////////////////////////////////////////////////////////////////
-////////////////////////////// Content //////////////////////////////////////
+////////////////////////////// Bottom //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
-  ///
-
   Widget buildBottomImage() {
     return Stack(
       clipBehavior: Clip.none,
