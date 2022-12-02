@@ -10,7 +10,7 @@ class _SkillsState extends State<Skills> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(10.0),
       child: Column(
         children: [
           new Row(
@@ -19,7 +19,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 5000,
+                animationDuration: 7000,
                 lineWidth: 15.0,
                 percent: 0.8,
                 footer: new Text(
@@ -47,7 +47,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 5000,
+                animationDuration: 7000,
                 lineWidth: 15.0,
                 percent: 0.6,
                 footer: new Text(
@@ -75,7 +75,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 5000,
+                animationDuration: 7000,
                 lineWidth: 15.0,
                 percent: 0.4,
                 footer: new Text(
@@ -106,7 +106,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 5000,
+                animationDuration: 7000,
                 lineWidth: 15.0,
                 percent: 0.8,
                 footer: new Text(
@@ -134,7 +134,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 5000,
+                animationDuration: 7000,
                 lineWidth: 15.0,
                 percent: 0.9,
                 footer: new Text(

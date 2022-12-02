@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:port/skills.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,7 +26,7 @@ class Port extends StatefulWidget {
 }
 
 class _PortState extends State<Port> {
-  final double coverHeight = 280;
+  final double coverHeight = 210;
   final double profileHeight = 200;
   bool isPressed = false;
 
@@ -38,7 +37,6 @@ class _PortState extends State<Port> {
 
     return Scaffold(
         body: ListView(
-      padding: EdgeInsets.zero,
       children: [
         buildTop(),
         buildContent(),
@@ -69,8 +67,7 @@ class _PortState extends State<Port> {
   Widget buildProfileImage() => CircleAvatar(
         radius: profileHeight / 2.8,
         backgroundColor: Colors.grey.shade800,
-        backgroundImage: NetworkImage(
-            "https://cdn-icons-png.flaticon.com/512/219/219988.png"),
+        backgroundImage: NetworkImage("https://i.ibb.co/f833VSL/2199882.png"),
       );
 
 ////////////////////////////// Top //////////////////////////////////////
@@ -126,6 +123,9 @@ class _PortState extends State<Port> {
 ////////////////////////////// Content //////////////////////////////////////
   ///
   Widget buildContent() {
+    final _h = MediaQuery.of(context).size.height;
+    final _w = MediaQuery.of(context).size.width;
+
     List colors = [
       Colors.lightBlue[400],
       Colors.orange[500],
@@ -140,16 +140,22 @@ class _PortState extends State<Port> {
     ];
 
     List links1 = [
-      "https://www.facebook.com/",
-      "https://github.com/",
+      "https://www.facebook.com/zaryabalam35",
       "https://github.com/ZaryabAlam",
-      "https://www.linkedin.com/login",
+      "https://twitter.com/zaryabalam",
+      "https://www.linkedin.com/in/zaryab-alam-660b7a187/",
     ];
 
     List hpics = [
       "https://i.ibb.co/8zcxTfj/tools.png",
       "https://i.ibb.co/C6JQz3f/archery.png",
       "https://i.ibb.co/9gk1Rzm/love.png",
+    ];
+    List social = [
+      "https://i.ibb.co/31V9cj3/facebook.png",
+      "https://i.ibb.co/C2prytz/github.png",
+      "https://i.ibb.co/BLRRjkJ/twitter.png",
+      "https://i.ibb.co/yFLm5zb/linkedin.png",
     ];
 
     List<String> hobby = [
@@ -159,7 +165,7 @@ class _PortState extends State<Port> {
     ];
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 48),
+      padding: EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
           Column(
@@ -188,12 +194,15 @@ class _PortState extends State<Port> {
               (index) {
                 return Row(
                   children: [
+                    SizedBox(
+                      width: 20,
+                    ),
                     CircleAvatar(
                       radius: 25,
                       child: Material(
                         shape: CircleBorder(),
                         clipBehavior: Clip.hardEdge,
-                        color: Colors.black,
+                        color: Colors.transparent,
                         child: InkWell(
                           onTap: () async {
                             dynamic url = links1[index];
@@ -204,18 +213,18 @@ class _PortState extends State<Port> {
                             }
                           },
                           child: Center(
-                            child: Icon(
-                              icons[index],
-                              size: 32,
-                              color: colors[index],
+                            child: Container(
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(social[index])),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      width: 20,
-                    )
                   ],
                 );
               },
@@ -236,7 +245,11 @@ class _PortState extends State<Port> {
                 ),
                 Text(
                   "Flutter Software Engineer, Techonology Enthusiast and Aviation Lover. Learning and practicing Flutter and Dart for developing responsive native mobile applications. ",
-                  style: TextStyle(fontSize: 18, height: 1.8),
+                  style: TextStyle(
+                    fontSize: 18,
+                    height: 1.8,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
                 const SizedBox(
                   height: 30,
@@ -255,28 +268,23 @@ class _PortState extends State<Port> {
                     (index) {
                       return Column(
                         children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: NetworkImage(hpics[index]))),
-                              ),
-                            ],
-                          ),
                           SizedBox(
-                            width: 120,
-                            height: 10,
+                            width: 100,
+                          ),
+                          Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(hpics[index]))),
                           ),
                           Text(
                             hobby[index],
                             style: new TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 17.0,
-                                height: 1.2),
-                          ),
+                                fontSize: 13,
+                                height: 1.8),
+                          )
                         ],
                       );
                     },
@@ -353,6 +361,30 @@ class _PortState extends State<Port> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: NetworkImage("https://i.ibb.co/LYSsfBq/qrcode.png"))),
+        ),
+        Positioned(
+          bottom: 10,
+          child: Column(
+            children: [
+              Text(
+                "Scan for more!",
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                "All Right Reserve 2022 © DevCat | Zaryab Alam",
+                style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w100),
+              ),
+            ],
+          ),
         )
       ],
     );
