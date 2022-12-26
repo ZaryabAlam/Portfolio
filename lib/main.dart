@@ -1,6 +1,5 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:port/skills.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,9 +31,6 @@ class _PortState extends State<Port> {
 
   @override
   Widget build(BuildContext context) {
-    final _h = MediaQuery.of(context).size.height;
-    final _w = MediaQuery.of(context).size.width;
-
     return Scaffold(
         body: ListView(
       children: [
@@ -59,7 +55,7 @@ class _PortState extends State<Port> {
               bottomLeft: Radius.circular(40.0),
             ),
             image: DecorationImage(
-                image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
+                image: AssetImage("assets/cover.jpg"), fit: BoxFit.fill)),
       );
 
 ////////////////////////////// Profile //////////////////////////////////////
@@ -67,7 +63,7 @@ class _PortState extends State<Port> {
   Widget buildProfileImage() => CircleAvatar(
         radius: profileHeight / 2.8,
         backgroundColor: Colors.grey.shade800,
-        backgroundImage: NetworkImage("https://i.ibb.co/f833VSL/2199882.png"),
+        backgroundImage: AssetImage("assets/pic.png"),
       );
 
 ////////////////////////////// Top //////////////////////////////////////
@@ -123,22 +119,6 @@ class _PortState extends State<Port> {
 ////////////////////////////// Content //////////////////////////////////////
   ///
   Widget buildContent() {
-    final _h = MediaQuery.of(context).size.height;
-    final _w = MediaQuery.of(context).size.width;
-
-    List colors = [
-      Colors.lightBlue[400],
-      Colors.orange[500],
-      Colors.green[300],
-      Color(0xFF02c0f5),
-    ];
-    List<IconData> icons = [
-      (FontAwesomeIcons.facebook),
-      FontAwesomeIcons.github,
-      FontAwesomeIcons.shieldCat,
-      FontAwesomeIcons.linkedin,
-    ];
-
     List links1 = [
       "https://www.facebook.com/zaryabalam35",
       "https://github.com/ZaryabAlam",
@@ -147,21 +127,21 @@ class _PortState extends State<Port> {
     ];
 
     List hpics = [
-      "https://i.ibb.co/8zcxTfj/tools.png",
-      "https://i.ibb.co/C6JQz3f/archery.png",
-      "https://i.ibb.co/9gk1Rzm/love.png",
+      "assets/tools.png",
+      "assets/archery.png",
+      "assets/love.png",
     ];
     List social = [
-      "https://i.ibb.co/31V9cj3/facebook.png",
-      "https://i.ibb.co/C2prytz/github.png",
-      "https://i.ibb.co/BLRRjkJ/twitter.png",
-      "https://i.ibb.co/yFLm5zb/linkedin.png",
+      "assets/facebook.png",
+      "assets/github.png",
+      "assets/twitter.png",
+      "assets/linkedin.png",
     ];
 
     List<String> hobby = [
       "Sketching",
       "Target Practise",
-      "Petting My Cat",
+      "Petting My Cats",
     ];
 
     return Container(
@@ -218,7 +198,7 @@ class _PortState extends State<Port> {
                               width: 80,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(social[index])),
+                                    image: AssetImage(social[index])),
                               ),
                             ),
                           ),
@@ -276,7 +256,7 @@ class _PortState extends State<Port> {
                             width: 70,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                    image: NetworkImage(hpics[index]))),
+                                    image: AssetImage(hpics[index]))),
                           ),
                           Text(
                             hobby[index],
@@ -324,7 +304,7 @@ class _PortState extends State<Port> {
                 topRight: Radius.circular(40.0),
               ),
               image: DecorationImage(
-                  image: AssetImage("cover.jpg"), fit: BoxFit.fill)),
+                  image: AssetImage("assets/cover.jpg"), fit: BoxFit.fill)),
         ),
         GestureDetector(
             onTapDown: (_) {
@@ -359,8 +339,7 @@ class _PortState extends State<Port> {
           height: 100,
           width: 100,
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage("https://i.ibb.co/LYSsfBq/qrcode.png"))),
+              image: DecorationImage(image: AssetImage("assets/qrcode.png"))),
         ),
         Positioned(
           bottom: 10,
@@ -377,7 +356,7 @@ class _PortState extends State<Port> {
                 height: 10,
               ),
               Text(
-                "All Right Reserve 2022 © DevCat | Zaryab Alam",
+                "All Rights Reserve 2022 © DevCat | Zaryab Alam",
                 style: TextStyle(
                     fontSize: 12,
                     color: Colors.white,

@@ -19,7 +19,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 7000,
+                animationDuration: 8000,
                 lineWidth: 15.0,
                 percent: 0.8,
                 footer: new Text(
@@ -32,8 +32,7 @@ class _SkillsState extends State<Skills> {
                   width: 50,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://i.ibb.co/hXCX8zD/icons8-vscode.png"))),
+                          image: AssetImage("assets/vscode.png"))),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.grey.shade300,
@@ -47,7 +46,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 7000,
+                animationDuration: 8000,
                 lineWidth: 15.0,
                 percent: 0.6,
                 footer: new Text(
@@ -60,8 +59,7 @@ class _SkillsState extends State<Skills> {
                   width: 42,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://i.ibb.co/qD87PZ0/icons8-flutter.png"))),
+                          image: AssetImage("assets/flutter.png"))),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.grey.shade300,
@@ -75,7 +73,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 7000,
+                animationDuration: 8000,
                 lineWidth: 15.0,
                 percent: 0.4,
                 footer: new Text(
@@ -88,8 +86,7 @@ class _SkillsState extends State<Skills> {
                   width: 50,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://i.ibb.co/3StZvxP/icons8-firebase.png"))),
+                          image: AssetImage("assets/firebase.png"))),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.grey.shade300,
@@ -106,7 +103,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 7000,
+                animationDuration: 8000,
                 lineWidth: 15.0,
                 percent: 0.8,
                 footer: new Text(
@@ -119,8 +116,7 @@ class _SkillsState extends State<Skills> {
                   width: 50,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://i.ibb.co/smzHhX6/icons8-photoshop.png"))),
+                          image: AssetImage("assets/photoshop.png"))),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.grey.shade300,
@@ -134,7 +130,7 @@ class _SkillsState extends State<Skills> {
               new CircularPercentIndicator(
                 radius: 100.0,
                 animation: true,
-                animationDuration: 7000,
+                animationDuration: 8000,
                 lineWidth: 15.0,
                 percent: 0.9,
                 footer: new Text(
@@ -147,8 +143,7 @@ class _SkillsState extends State<Skills> {
                   width: 50,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              "https://i.ibb.co/56PP4yf/icons8-word.png"))),
+                          image: AssetImage("assets/word.png"))),
                 ),
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: Colors.grey.shade300,
